@@ -20,7 +20,7 @@ jobs:
       - name: Build with Buildozer
         uses: digreatbrian/buildozer-action@v2
         with:
-          buildozer-cmd: yes | buildozer android debug
+          buildozer-cmd: buildozer android debug
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
