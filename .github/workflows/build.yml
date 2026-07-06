@@ -21,6 +21,7 @@ jobs:
           java-version: '17'
 
       - name: Setup Android SDK
+        id: android-sdk
         uses: android-actions/setup-android@v3
         with:
           api-levels: '31'
@@ -31,6 +32,9 @@ jobs:
 
       - name: Build with Buildozer
         uses: digreatbrian/buildozer-action@v2
+        env:
+          ANDROID_SDK_ROOT: ${{ steps.android-sdk.outputs.android-sdk-path }}
+          ANDROID_HOME: ${{ steps.android-sdk.outputs.android-sdk-path }}
         with:
           buildozer-cmd: buildozer android debug
 
